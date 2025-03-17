@@ -107,7 +107,19 @@ export default {
         'apple': 'cubic-bezier(0.42, 0, 0.58, 1)'
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif']
+        sans: [
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Oxygen',
+          'Ubuntu',
+          'Cantarell',
+          'Open Sans',
+          'Helvetica Neue',
+          'sans-serif',
+        ]
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
