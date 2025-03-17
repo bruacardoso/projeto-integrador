@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 280 20% 98%;
     --foreground: 240 10% 3.9%;
     
     --card: 0 0% 100%;
@@ -14,24 +14,24 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
     
-    --primary: 240 5.9% 10%;
+    --primary: 260 60% 55%;
     --primary-foreground: 0 0% 98%;
     
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 263 50% 95%;
+    --secondary-foreground: 260 30% 40%;
     
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
     
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 165 70% 50%;
+    --accent-foreground: 165 80% 15%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --ring: 260 60% 55%;
     
     --radius: 1rem;
   }
@@ -75,6 +75,23 @@
   
   .auth-link {
     @apply text-sm font-medium text-primary hover:text-primary/80 transition-colors duration-200 ease-apple;
+  }
+  
+  /* E-commerce specific components */
+  .product-card {
+    @apply bg-white rounded-2xl border border-border/50 shadow-product overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .product-image {
+    @apply w-full aspect-square object-cover object-center;
+  }
+  
+  .product-badge {
+    @apply inline-block px-2 py-1 text-xs font-medium rounded-full bg-accent/10 text-accent;
+  }
+  
+  .cart-button {
+    @apply inline-flex items-center justify-center rounded-xl text-sm font-medium transition-all duration-200 px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90;
   }
   
   .page-transition-enter {

@@ -100,10 +100,18 @@ export default {
       },
       boxShadow: {
         'soft': '0 8px 30px rgba(0, 0, 0, 0.05)',
-        'glow': '0 0 20px rgba(255, 255, 255, 0.1)'
+        'glow': '0 0 20px rgba(255, 255, 255, 0.1)',
+        'product': '0 10px 30px rgba(0, 0, 0, 0.08)'
       },
       transitionTimingFunction: {
         'apple': 'cubic-bezier(0.42, 0, 0.58, 1)'
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif']
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-product': 'linear-gradient(to right, #c1c161 0%, #d4d4b1 100%)',
       }
     }
   },
