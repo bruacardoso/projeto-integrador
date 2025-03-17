@@ -34,7 +34,7 @@ const Login = () => {
         title: "Login realizado",
         description: "Você foi autenticado com sucesso",
       });
-      navigate("/");
+      navigate("/videos");
     }, 1500);
   };
 

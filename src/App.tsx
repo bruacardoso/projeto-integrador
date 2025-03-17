@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import PasswordReset from "./pages/PasswordReset";
 import UserProfile from "./pages/UserProfile";
+import Videos from "./pages/Videos";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/criar-conta" element={<Signup />} />
             <Route path="/recuperar-senha" element={<PasswordReset />} />
             <Route path="/perfil" element={<UserProfile />} />
+            <Route path="/videos" element={<Videos />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
