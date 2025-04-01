@@ -69,15 +69,20 @@ const Login = () => {
       title="Bem-vindo de volta" 
       subtitle="Entre com sua conta para continuar"
     >
-      <div className="mb-6">
+      <motion.div 
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.4 }}
+        className="mb-8"
+      >
         <Link 
           to="/" 
-          className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors"
+          className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-secondary/80 text-secondary-foreground hover:bg-secondary transition-colors"
         >
-          <ChevronLeft className="mr-1 h-4 w-4" />
+          <ChevronLeft className="mr-2 h-5 w-5" />
           Voltar para o início
         </Link>
-      </div>
+      </motion.div>
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <motion.div 
