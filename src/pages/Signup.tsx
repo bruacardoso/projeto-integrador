@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Eye, EyeOff, ArrowRight } from "lucide-react";
+import { Eye, EyeOff, ArrowRight, ChevronLeft } from "lucide-react";
 import AuthLayout from "@/components/AuthLayout";
 import { useToast } from "@/hooks/use-toast";
 
@@ -53,6 +53,16 @@ const Signup = () => {
       title="Criar uma conta" 
       subtitle="Preencha os campos abaixo para começar"
     >
+      <div className="mb-6">
+        <Link 
+          to="/" 
+          className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors"
+        >
+          <ChevronLeft className="mr-1 h-4 w-4" />
+          Voltar para o início
+        </Link>
+      </div>
+      
       <form onSubmit={handleSubmit} className="space-y-4">
         <motion.div 
           variants={inputVariants}
