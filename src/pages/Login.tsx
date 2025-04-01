@@ -65,124 +65,126 @@ const Login = () => {
   };
 
   return (
-    <AuthLayout 
-      title="Bem-vindo de volta" 
-      subtitle="Entre com sua conta para continuar"
-    >
-      <motion.div 
-        initial={{ opacity: 0, y: 10 }}
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-secondary/50 to-primary/10 relative">
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.4 }}
-        className="mb-8"
+        transition={{ duration: 0.4 }}
+        className="absolute top-8 left-8"
       >
         <Link 
           to="/" 
-          className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-secondary/80 text-secondary-foreground hover:bg-secondary transition-colors"
+          className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-white/90 text-primary font-medium shadow-sm hover:bg-white hover:shadow-md transition-all"
         >
           <ChevronLeft className="mr-2 h-5 w-5" />
           Voltar para o início
         </Link>
       </motion.div>
       
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <motion.div 
-          variants={inputVariants}
-          initial="hidden"
-          animate="visible"
-          custom={0}
-          className="space-y-2"
-        >
-          <label htmlFor="email" className="text-sm font-medium">
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="auth-input"
-            placeholder="seu@email.com"
-            disabled={isLoading}
-            autoComplete="email"
-          />
-        </motion.div>
-        
-        <motion.div 
-          variants={inputVariants}
-          initial="hidden"
-          animate="visible"
-          custom={1}
-          className="space-y-2"
-        >
-          <div className="flex justify-between items-center">
-            <label htmlFor="password" className="text-sm font-medium">
-              Senha
+      <AuthLayout 
+        title="Bem-vindo de volta" 
+        subtitle="Entre com sua conta para continuar"
+      >
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <motion.div 
+            variants={inputVariants}
+            initial="hidden"
+            animate="visible"
+            custom={0}
+            className="space-y-2"
+          >
+            <label htmlFor="email" className="text-sm font-medium">
+              Email
             </label>
-            <Link to="/recuperar-senha" className="auth-link text-xs">
-              Esqueceu a senha?
-            </Link>
-          </div>
-          <div className="relative">
             <input
-              id="password"
-              type={showPassword ? "text" : "password"}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="auth-input pr-12"
-              placeholder="Sua senha"
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="auth-input"
+              placeholder="seu@email.com"
               disabled={isLoading}
-              autoComplete="current-password"
+              autoComplete="email"
             />
+          </motion.div>
+          
+          <motion.div 
+            variants={inputVariants}
+            initial="hidden"
+            animate="visible"
+            custom={1}
+            className="space-y-2"
+          >
+            <div className="flex justify-between items-center">
+              <label htmlFor="password" className="text-sm font-medium">
+                Senha
+              </label>
+              <Link to="/recuperar-senha" className="auth-link text-xs">
+                Esqueceu a senha?
+              </Link>
+            </div>
+            <div className="relative">
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="auth-input pr-12"
+                placeholder="Sua senha"
+                disabled={isLoading}
+                autoComplete="current-password"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                disabled={isLoading}
+              >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </button>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            variants={inputVariants}
+            initial="hidden"
+            animate="visible"
+            custom={2}
+            className="pt-2"
+          >
             <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+              type="submit"
+              className="auth-button-primary w-full group"
               disabled={isLoading}
             >
-              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              {isLoading ? (
+                <div className="w-5 h-5 border-t-2 border-white rounded-full animate-spin" />
+              ) : (
+                <>
+                  Entrar
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 ease-apple group-hover:translate-x-1" />
+                </>
+              )}
             </button>
-          </div>
-        </motion.div>
-        
-        <motion.div 
-          variants={inputVariants}
-          initial="hidden"
-          animate="visible"
-          custom={2}
-          className="pt-2"
-        >
-          <button
-            type="submit"
-            className="auth-button-primary w-full group"
-            disabled={isLoading}
+          </motion.div>
+          
+          <motion.div 
+            variants={inputVariants}
+            initial="hidden"
+            animate="visible"
+            custom={3}
+            className="text-center"
           >
-            {isLoading ? (
-              <div className="w-5 h-5 border-t-2 border-white rounded-full animate-spin" />
-            ) : (
-              <>
-                Entrar
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 ease-apple group-hover:translate-x-1" />
-              </>
-            )}
-          </button>
-        </motion.div>
-        
-        <motion.div 
-          variants={inputVariants}
-          initial="hidden"
-          animate="visible"
-          custom={3}
-          className="text-center"
-        >
-          <p className="text-sm text-muted-foreground">
-            Não tem uma conta?{" "}
-            <Link to="/criar-conta" className="auth-link">
-              Crie uma agora
-            </Link>
-          </p>
-        </motion.div>
-      </form>
-    </AuthLayout>
+            <p className="text-sm text-muted-foreground">
+              Não tem uma conta?{" "}
+              <Link to="/criar-conta" className="auth-link">
+                Crie uma agora
+              </Link>
+            </p>
+          </motion.div>
+        </form>
+      </AuthLayout>
+    </div>
   );
 };
 
