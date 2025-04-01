@@ -27,15 +27,32 @@ const Login = () => {
 
     setIsLoading(true);
     
-    // Simulate authentication delay
-    setTimeout(() => {
+    // Simulando autenticação
+    try {
+      // Aqui seria a chamada para uma API real
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Simulando armazenamento de token e dados do usuário
+      localStorage.setItem("isAuthenticated", "true");
+      localStorage.setItem("user", JSON.stringify({
+        name: "Usuário Teste",
+        email: email
+      }));
+      
       setIsLoading(false);
       toast({
         title: "Login realizado",
         description: "Você foi autenticado com sucesso",
       });
       navigate("/videos");
-    }, 1500);
+    } catch (error) {
+      setIsLoading(false);
+      toast({
+        title: "Erro ao fazer login",
+        description: "Verifique suas credenciais e tente novamente",
+        variant: "destructive",
+      });
+    }
   };
 
   const inputVariants = {
@@ -71,6 +88,7 @@ const Login = () => {
             className="auth-input"
             placeholder="seu@email.com"
             disabled={isLoading}
+            autoComplete="email"
           />
         </motion.div>
         
@@ -98,6 +116,7 @@ const Login = () => {
               className="auth-input pr-12"
               placeholder="Sua senha"
               disabled={isLoading}
+              autoComplete="current-password"
             />
             <button
               type="button"

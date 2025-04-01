@@ -8,14 +8,16 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <header className="py-4 px-6 sm:px-10 flex justify-between items-center bg-white shadow-sm sticky top-0 z-10">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-xl font-medium bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
-        >
-          VideoApp
-        </motion.div>
+        <Link to="/">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="text-xl font-medium bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+          >
+            VideoApp
+          </motion.div>
+        </Link>
         
         <div className="hidden md:flex items-center space-x-8">
           <Link to="/videos" className="text-sm font-medium hover:text-primary transition-colors">Vídeos</Link>
@@ -71,7 +73,7 @@ const Index = () => {
       <footer className="py-6 px-6 border-t">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-sm text-muted-foreground">
-            © 2023 VideoApp. Todos os direitos reservados.
+            © {new Date().getFullYear()} VideoApp. Todos os direitos reservados.
           </p>
         </div>
       </footer>
